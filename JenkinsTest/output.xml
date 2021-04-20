@@ -1,72 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.9.2 on win32)" generated="20210415 17:31:12.048" rpa="false">
-<suite id="s1" name="JenkinsTest" source="C:\Users\jeffe\Desktop\Eclipse_2021\Eclipse_2021_workspace\JenkinsTest">
-<suite id="s1-s1" name="RoboJenkins" source="C:\Users\jeffe\Desktop\Eclipse_2021\Eclipse_2021_workspace\JenkinsTest\RoboJenkins">
-<suite id="s1-s1-s1" name="JenkinsRun" source="C:\Users\jeffe\Desktop\Eclipse_2021\Eclipse_2021_workspace\JenkinsTest\RoboJenkins\JenkinsRun.robot">
-<test id="s1-s1-s1-t1" name="RunJenkins">
-<kw name="JenkinsStartKW">
-<kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
+<robot generator="Robot 3.2.2 (Python 3.9.2 on win32)" generated="20210420 15:25:40.451" rpa="false">
+<suite id="s1" name="JenkinsTest" source="C:\Users\jeffe\git\RoboSumTest\JenkinsTest">
+<suite id="s1-s1" name="RoboJenkins" source="C:\Users\jeffe\git\RoboSumTest\JenkinsTest\RoboJenkins">
+<suite id="s1-s1-s1" name="JenkinsRun" source="C:\Users\jeffe\git\RoboSumTest\JenkinsTest\RoboJenkins\JenkinsRun.robot">
+<test id="s1-s1-s1-t1" name="JenkinsTest">
+<kw name="RandomSummarizeKW">
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
-<arg>http://localhost:9090/</arg>
-<arg>chrome</arg>
+<arg>random.sample(range(1,11),4)</arg>
+<arg>random</arg>
 </arguments>
-<msg timestamp="20210415 17:31:12.890" level="INFO">Opening browser 'chrome' to base url 'http://localhost:9090/'.</msg>
-<status status="PASS" starttime="20210415 17:31:12.889" endtime="20210415 17:31:16.885"></status>
+<assign>
+<var>@{Numbers}</var>
+</assign>
+<msg timestamp="20210420 15:25:41.954" level="INFO">@{Numbers} = [ 3 | 2 | 7 | 10 ]</msg>
+<status status="PASS" starttime="20210420 15:25:41.952" endtime="20210420 15:25:41.955"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
-<arg>3</arg>
+<arg>${Numbers}[0]+${Numbers}[1]+${Numbers}[2]+${Numbers}[3]</arg>
 </arguments>
-<msg timestamp="20210415 17:31:19.888" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20210415 17:31:16.886" endtime="20210415 17:31:19.889"></status>
+<assign>
+<var>${Sum}</var>
+</assign>
+<msg timestamp="20210420 15:25:41.962" level="INFO">${Sum} = 22</msg>
+<status status="PASS" starttime="20210420 15:25:41.956" endtime="20210420 15:25:41.962"></status>
 </kw>
-<status status="PASS" starttime="20210415 17:31:12.888" endtime="20210415 17:31:19.890"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
 <arguments>
-<arg>j_username</arg>
-<arg>${Jenkins}[0]</arg>
+<arg>20</arg>
 </arguments>
-<msg timestamp="20210415 17:31:19.893" level="INFO">Typing text 'JenkinsRokaren' into text field 'j_username'.</msg>
-<status status="PASS" starttime="20210415 17:31:19.891" endtime="20210415 17:31:20.081"></status>
+<assign>
+<var>${Test}</var>
+</assign>
+<msg timestamp="20210420 15:25:41.964" level="INFO">${Test} = 20</msg>
+<status status="PASS" starttime="20210420 15:25:41.963" endtime="20210420 15:25:41.964"></status>
 </kw>
-<kw name="Input Password" library="SeleniumLibrary">
-<doc>Types the given password into the text field identified by ``locator``.</doc>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
-<arg>j_password</arg>
-<arg>${Jenkins}[1]</arg>
+<arg>${Sum}&gt;=${Test}</arg>
 </arguments>
-<msg timestamp="20210415 17:31:20.083" level="INFO">Typing password into text field 'j_password'.</msg>
-<msg timestamp="20210415 17:31:20.142" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20210415 17:31:20.287" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20210415 17:31:20.081" endtime="20210415 17:31:20.287"></status>
+<assign>
+<var>${Result}</var>
+</assign>
+<msg timestamp="20210420 15:25:41.968" level="INFO">${Result} = True</msg>
+<status status="PASS" starttime="20210420 15:25:41.965" endtime="20210420 15:25:41.968"></status>
 </kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>Sign in</arg>
+<arg>${Result}==False</arg>
+<arg>LogIfFailKW</arg>
 </arguments>
-<msg timestamp="20210415 17:31:20.288" level="INFO">Clicking button 'Sign in'.</msg>
-<status status="PASS" starttime="20210415 17:31:20.288" endtime="20210415 17:31:22.297"></status>
+<status status="PASS" starttime="20210420 15:25:41.969" endtime="20210420 15:25:41.970"></status>
 </kw>
-<kw name="Go To" library="SeleniumLibrary">
-<doc>Navigates the current browser window to the provided ``url``.</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>http://localhost:9090/job/SumTest/build?delay=0sec</arg>
+<arg>${Result}==False</arg>
+<arg>fail</arg>
 </arguments>
-<msg timestamp="20210415 17:31:22.300" level="INFO">Opening url 'http://localhost:9090/job/SumTest/build?delay=0sec'</msg>
-<status status="PASS" starttime="20210415 17:31:22.298" endtime="20210415 17:31:22.990"></status>
+<status status="PASS" starttime="20210420 15:25:41.971" endtime="20210420 15:25:41.972"></status>
 </kw>
-<status status="PASS" starttime="20210415 17:31:12.886" endtime="20210415 17:31:22.990" critical="yes"></status>
+<status status="PASS" starttime="20210420 15:25:41.950" endtime="20210420 15:25:41.973"></status>
+</kw>
+<status status="PASS" starttime="20210420 15:25:41.948" endtime="20210420 15:25:41.974" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20210415 17:31:12.385" endtime="20210415 17:31:22.994"></status>
+<status status="PASS" starttime="20210420 15:25:40.969" endtime="20210420 15:25:41.980"></status>
 </suite>
-<status status="PASS" starttime="20210415 17:31:12.374" endtime="20210415 17:31:23.000"></status>
+<status status="PASS" starttime="20210420 15:25:40.931" endtime="20210420 15:25:41.992"></status>
 </suite>
-<status status="PASS" starttime="20210415 17:31:12.289" endtime="20210415 17:31:23.004"></status>
+<status status="PASS" starttime="20210420 15:25:40.789" endtime="20210420 15:25:41.995"></status>
 </suite>
 <statistics>
 <total>
