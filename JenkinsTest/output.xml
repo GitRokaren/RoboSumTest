@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.2 on win32)" generated="20210415 17:31:12.048" rpa="false">
+<suite id="s1" name="JenkinsTest" source="C:\Users\jeffe\Desktop\Eclipse_2021\Eclipse_2021_workspace\JenkinsTest">
+<suite id="s1-s1" name="RoboJenkins" source="C:\Users\jeffe\Desktop\Eclipse_2021\Eclipse_2021_workspace\JenkinsTest\RoboJenkins">
+<suite id="s1-s1-s1" name="JenkinsRun" source="C:\Users\jeffe\Desktop\Eclipse_2021\Eclipse_2021_workspace\JenkinsTest\RoboJenkins\JenkinsRun.robot">
+<test id="s1-s1-s1-t1" name="RunJenkins">
+<kw name="JenkinsStartKW">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://localhost:9090/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20210415 17:31:12.890" level="INFO">Opening browser 'chrome' to base url 'http://localhost:9090/'.</msg>
+<status status="PASS" starttime="20210415 17:31:12.889" endtime="20210415 17:31:16.885"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20210415 17:31:19.888" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210415 17:31:16.886" endtime="20210415 17:31:19.889"></status>
+</kw>
+<status status="PASS" starttime="20210415 17:31:12.888" endtime="20210415 17:31:19.890"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>j_username</arg>
+<arg>${Jenkins}[0]</arg>
+</arguments>
+<msg timestamp="20210415 17:31:19.893" level="INFO">Typing text 'JenkinsRokaren' into text field 'j_username'.</msg>
+<status status="PASS" starttime="20210415 17:31:19.891" endtime="20210415 17:31:20.081"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>j_password</arg>
+<arg>${Jenkins}[1]</arg>
+</arguments>
+<msg timestamp="20210415 17:31:20.083" level="INFO">Typing password into text field 'j_password'.</msg>
+<msg timestamp="20210415 17:31:20.142" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20210415 17:31:20.287" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20210415 17:31:20.081" endtime="20210415 17:31:20.287"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>Sign in</arg>
+</arguments>
+<msg timestamp="20210415 17:31:20.288" level="INFO">Clicking button 'Sign in'.</msg>
+<status status="PASS" starttime="20210415 17:31:20.288" endtime="20210415 17:31:22.297"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:9090/job/SumTest/build?delay=0sec</arg>
+</arguments>
+<msg timestamp="20210415 17:31:22.300" level="INFO">Opening url 'http://localhost:9090/job/SumTest/build?delay=0sec'</msg>
+<status status="PASS" starttime="20210415 17:31:22.298" endtime="20210415 17:31:22.990"></status>
+</kw>
+<status status="PASS" starttime="20210415 17:31:12.886" endtime="20210415 17:31:22.990" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210415 17:31:12.385" endtime="20210415 17:31:22.994"></status>
+</suite>
+<status status="PASS" starttime="20210415 17:31:12.374" endtime="20210415 17:31:23.000"></status>
+</suite>
+<status status="PASS" starttime="20210415 17:31:12.289" endtime="20210415 17:31:23.004"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="JenkinsTest">JenkinsTest</stat>
+<stat pass="1" fail="0" id="s1-s1" name="RoboJenkins">JenkinsTest.RoboJenkins</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="JenkinsRun">JenkinsTest.RoboJenkins.JenkinsRun</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
